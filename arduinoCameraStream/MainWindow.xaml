@@ -1,0 +1,125 @@
+﻿<Window x:Class="arduinoCameraStream.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        Title="Arduino Camera Viewer" Width="1085" Height="735">
+    <Window.Resources>
+        <Image x:Key="Record" Source="resources/RecordPressed.png" />
+        <Image x:Key="Stop" Source="resources/stopRecording.png" />
+    </Window.Resources>
+    <Window.CommandBindings>
+        <CommandBinding Command="New" Executed="New_Executed" CanExecute="New_CanExecute" />
+        <CommandBinding Command="Open" Executed="Open_Executed" CanExecute="Open_CanExecute" />
+        <CommandBinding Command="Save" Executed="Save_Executed" CanExecute="Save_CanExecute" />
+        <CommandBinding Command="SaveAs" Executed="SaveAs_Executed" CanExecute="SaveAs_CanExecute" />
+    </Window.CommandBindings>
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <Menu IsMainMenu="True" DockPanel.Dock="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_New" Command="New">
+                        <MenuItem.Icon>
+                            <Image Source="resources/NewFile_6276.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Open" Command="Open">
+                        <MenuItem.Icon>
+                            <Image Source="resources/Open_6529.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Save" Command="Save">
+                        <MenuItem.Icon>
+                            <Image Source="resources/Save_6530.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="Save _As..." Command="SaveAs" />
+                </MenuItem>
+                <MenuItem Header="_Edit">
+                    <MenuItem Header="_Cut" Command="Cut">
+                        <MenuItem.Icon>
+                            <Image Source="resources/Cut_6523.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Copy" Command="Copy">
+                        <MenuItem.Icon>
+                            <Image Source="resources/Copy_6524.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Header="_Paste" Command="Paste">
+                        <MenuItem.Icon>
+                            <Image Source="resources/Paste_6520.png" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_View" />
+                <MenuItem Header="_Window" />
+                <MenuItem Header="_Help" />
+            </Menu>
+            <ToolBarTray HorizontalAlignment="Stretch" VerticalAlignment="Top">
+                <ToolBar>
+                    <Button Command="New" ToolTip="Open new file">
+                        <Image Source="resources/NewFile_6276.png"/>
+                    </Button>
+                    <Button Command="Open" ToolTip="Open existing file">
+                        <Image Source="resources/Open_6529.png" />
+                    </Button>
+                    <Button Command="Save" ToolTip="Save current file">
+                        <Image Source="resources/Save_6530.png" />
+                    </Button>
+                </ToolBar>
+                <ToolBar>
+                    <Grid>
+                        <ComboBox x:Name="COMList" Width="290" Margin="0,0,0,0" IsEnabled="False"/>
+                        <Image x:Name="COMListLoadingSpinner" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="resources/w8spinner.gif" />
+                    </Grid>
+                    <Button x:Name="openSerialSettings" Content="Settings" Width="75" Margin="5,0,0,0" BorderBrush="Gray" IsEnabled="False"/>
+                    <Button x:Name="openSerial" Content="Open" Width="75" Margin="5,0,0,0" BorderBrush="Gray" IsEnabled="False"/>
+                </ToolBar>
+                <ToolBar>
+                    <Button x:Name="recordStop" ToolTip="Overwrite the current selected stroke" Content="{DynamicResource Record}"/>
+                </ToolBar>
+                <ToolBar>
+                    <Button x:Name="openStream" Content="Open Stream" Margin="5,0,0,0" BorderBrush="Gray" IsEnabled="True"/>
+                </ToolBar>
+                <ToolBar>
+                    <Grid Width="200">
+                        <ProgressBar x:Name="serialProgress" Value="0"/>
+                        <TextBlock x:Name="serialProgressText" HorizontalAlignment="Center" VerticalAlignment="Center">
+                            0/0 (0%)
+                        </TextBlock>
+                    </Grid>
+                </ToolBar>
+            </ToolBarTray>
+        </DockPanel>
+        <Grid Grid.Row="1" Margin="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="5" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="480" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <ListView x:Name="readingListView" Grid.Row="0" Grid.Column="0" ItemsSource="{Binding readings}">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn DisplayMemberBinding="{Binding register}" Header="Register" Width="97"/>
+                        <GridViewColumn DisplayMemberBinding="{Binding lastRecord}" Header="Value" Width="97"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <GridSplitter Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" Width="5"/>
+            <Grid Grid.Row="0" Grid.Column="2">
+                <Border ClipToBounds="True">
+                    <Canvas x:Name="uiCanvas" Background="Gray" Cursor="resources/cross.cur" Width="640" Height="480" />
+                </Border>
+            </Grid>
+            <RichTextBox x:Name="rTBConsole" Grid.ColumnSpan="3" Grid.Row="1" VerticalScrollBarVisibility="Visible" Margin="0,5,0,0" IsReadOnly="True" />
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,41 @@
+﻿Build started 05/04/2015 19:51:21.
+     1>Project "D:\Development\electronic\project\arduinoCameraStream\RawCamera-data-converter\RawCamera-data-converter\RawCamera-data-converter.vcxproj" on node 2 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"D:\Development\electronic\project\arduinoCameraStream\\..\zlib-1.2.8" /I"D:\Development\electronic\project\arduinoCameraStream\\..\libpng-1.6.16" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\adaptive.c ..\bilinear.c ..\main.c ..\pixels.c ..\savePng.c ..\tables.c ..\yuv.c
+         yuv.c
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\yuv.c(15): warning C4244: 'return' : conversion from 'double' to 'uint8_t', possible loss of data
+         tables.c
+         savePng.c
+         pixels.c
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\pixels.c(7): warning C4018: '>=' : signed/unsigned mismatch
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\pixels.c(9): warning C4018: '>=' : signed/unsigned mismatch
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\pixels.c(21): warning C4018: '>=' : signed/unsigned mismatch
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\pixels.c(23): warning C4018: '>=' : signed/unsigned mismatch
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\pixels.c(45): warning C4018: '>=' : signed/unsigned mismatch
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\pixels.c(47): warning C4018: '>=' : signed/unsigned mismatch
+         main.c
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\main.c(217): warning C4244: '=' : conversion from 'float' to 'uint8_t', possible loss of data
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\main.c(218): warning C4244: '=' : conversion from 'float' to 'uint8_t', possible loss of data
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\main.c(219): warning C4244: '=' : conversion from 'float' to 'uint8_t', possible loss of data
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\main.c(339): warning C4013: 'yuv2rgb' undefined; assuming extern returning int
+         bilinear.c
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\bilinear.c(5): warning C4018: '<' : signed/unsigned mismatch
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\bilinear.c(6): warning C4018: '<' : signed/unsigned mismatch
+         adaptive.c
+         Generating Code...
+     1>d:\development\electronic\project\arduinocamerastream\rawcamera-data-converter\pixels.c(39): warning C4715: 'getBayerPixelCol' : not all control paths return a value
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\Development\electronic\project\arduinoCameraStream\Debug\RawCamera-data-converter.exe" /INCREMENTAL /NOLOGO /LIBPATH:"D:\Development\electronic\project\arduinoCameraStream\\..\libpng-1.6.16\projects\vstudio\Debug Library" zlib.lib libpng16.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:\Development\electronic\project\arduinoCameraStream\Debug\RawCamera-data-converter.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\Development\electronic\project\arduinoCameraStream\Debug\RawCamera-data-converter.lib" /MACHINE:X86 Debug\adaptive.obj
+         Debug\bilinear.obj
+         Debug\main.obj
+         Debug\pixels.obj
+         Debug\savePng.obj
+         Debug\tables.obj
+         Debug\yuv.obj
+     1>LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+         RawCamera-data-converter.vcxproj -> D:\Development\electronic\project\arduinoCameraStream\Debug\RawCamera-data-converter.exe
+     1>Done Building Project "D:\Development\electronic\project\arduinoCameraStream\RawCamera-data-converter\RawCamera-data-converter\RawCamera-data-converter.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.44
