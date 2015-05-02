@@ -1,0 +1,21 @@
+﻿Build started 04/04/2015 19:19:01.
+     1>Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\testzlib.vcxproj" on node 3 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"x86\TestZlibDebug\testzlib.exe" /INCREMENTAL /NOLOGO ..\..\masmx86\match686.obj ..\..\masmx86\inffas32.obj kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"x86\TestZlibDebug\testzlib.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"x86\TestZlibDebug\testzlib.lib" /MACHINE:X86 /SAFESEH x86\TestZlibDebug\Tmp\adler32.obj
+         x86\TestZlibDebug\Tmp\compress.obj
+         x86\TestZlibDebug\Tmp\crc32.obj
+         x86\TestZlibDebug\Tmp\deflate.obj
+         x86\TestZlibDebug\Tmp\infback.obj
+         x86\TestZlibDebug\Tmp\inffast.obj
+         x86\TestZlibDebug\Tmp\inflate.obj
+         x86\TestZlibDebug\Tmp\inftrees.obj
+         x86\TestZlibDebug\Tmp\testzlib.obj
+         x86\TestZlibDebug\Tmp\trees.obj
+         x86\TestZlibDebug\Tmp\uncompr.obj
+         x86\TestZlibDebug\Tmp\zutil.obj
+         testzlib.vcxproj -> D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\x86\TestZlibDebug\testzlib.exe
+     1>Done Building Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\testzlib.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.19

@@ -1,0 +1,14 @@
+﻿Build started 04/04/2015 19:19:41.
+     1>Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\minizip.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\.. /I..\..\minizip /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy /D WIN32 /D _CRT_NONSTDC_NO_DEPRECATE /D _CRT_SECURE_NO_DEPRECATE /D ZLIB_WINAPI /D NDEBUG /D _CONSOLE /D _MBCS /GF /Gm- /EHsc /MT /GS- /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x86\MiniZipRelease\Tmp\\" /Fd"x86\MiniZipRelease\Tmp\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\minizip\minizip.c
+         minizip.c
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"x86\MiniZipRelease\minizip.exe" /INCREMENTAL:NO /NOLOGO x86\ZlibDllRelease\zlibwapi.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"x86\MiniZipRelease\minizip.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"x86\MiniZipRelease\minizip.lib" /MACHINE:X86 /SAFESEH x86\MiniZipRelease\Tmp\minizip.obj
+         "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\x86\ZlibDllRelease\zlibwapi.lib"
+         minizip.vcxproj -> D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\x86\MiniZipRelease\minizip.exe
+     1>Done Building Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\minizip.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.74

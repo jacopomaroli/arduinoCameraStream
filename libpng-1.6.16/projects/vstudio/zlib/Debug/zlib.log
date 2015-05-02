@@ -1,0 +1,36 @@
+﻿Build started 04/04/2015 19:24:19.
+     1>Project "D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\zlib\zlib.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W0 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D Z_SOLO /Gm- /EHsc /MDd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /FR"Debug\\" /Gd /TC /analyze- /errorReport:prompt "..\..\..\..\zlib-1.2.8\adler32.c" "..\..\..\..\zlib-1.2.8\compress.c" "..\..\..\..\zlib-1.2.8\crc32.c" "..\..\..\..\zlib-1.2.8\deflate.c" "..\..\..\..\zlib-1.2.8\infback.c" "..\..\..\..\zlib-1.2.8\inffast.c" "..\..\..\..\zlib-1.2.8\inflate.c" "..\..\..\..\zlib-1.2.8\inftrees.c" "..\..\..\..\zlib-1.2.8\trees.c" "..\..\..\..\zlib-1.2.8\uncompr.c" "..\..\..\..\zlib-1.2.8\zutil.c"
+         adler32.c
+         compress.c
+         crc32.c
+         deflate.c
+         infback.c
+         inffast.c
+         inflate.c
+         inftrees.c
+         trees.c
+         uncompr.c
+         zutil.c
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\Debug\zlib.lib" /NOLOGO Debug\adler32.obj
+         Debug\compress.obj
+         Debug\crc32.obj
+         Debug\deflate.obj
+         Debug\infback.obj
+         Debug\inffast.obj
+         Debug\inflate.obj
+         Debug\inftrees.obj
+         Debug\trees.obj
+         Debug\uncompr.obj
+         Debug\zutil.obj
+         zlib.vcxproj -> D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\Debug\zlib.lib
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o"D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\Debug\zlib.bsc" Debug\adler32.sbr Debug\compress.sbr Debug\crc32.sbr Debug\deflate.sbr Debug\infback.sbr Debug\inffast.sbr Debug\inflate.sbr Debug\inftrees.sbr Debug\trees.sbr Debug\uncompr.sbr Debug\zutil.sbr
+     1>Done Building Project "D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\zlib\zlib.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.41

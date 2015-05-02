@@ -1,0 +1,51 @@
+﻿Build started 04/04/2015 19:19:33.
+     1>Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\zlibstat.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\.. /I..\..\masmx86 /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /D WIN32 /D ZLIB_WINAPI /D _CRT_NONSTDC_NO_DEPRECATE /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_WARNINGS /D ASMV /D ASMINF /GF /Gm- /MT /GS- /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x86\ZlibStatRelease\Tmp\\" /Fd"x86\ZlibStatRelease\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\adler32.c ..\..\..\compress.c ..\..\..\crc32.c ..\..\..\deflate.c ..\..\..\gzclose.c ..\..\..\gzlib.c ..\..\..\gzread.c ..\..\..\gzwrite.c ..\..\..\infback.c ..\..\..\inffast.c ..\..\..\inflate.c ..\..\..\inftrees.c ..\..\minizip\ioapi.c ..\..\..\trees.c ..\..\..\uncompr.c ..\..\minizip\unzip.c ..\..\minizip\zip.c ..\..\..\zutil.c
+         adler32.c
+         compress.c
+         crc32.c
+         deflate.c
+         gzclose.c
+         gzlib.c
+         gzread.c
+         gzwrite.c
+         infback.c
+         inffast.c
+         inflate.c
+         inftrees.c
+         ioapi.c
+         trees.c
+         uncompr.c
+         unzip.c
+         zip.c
+         zutil.c
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /l"0x040c" /nologo /fo"x86\ZlibStatRelease\Tmp\zlib.res" zlib.rc 
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"x86\ZlibStatRelease\zlibstat.lib" ..\..\masmx86\match686.obj ..\..\masmx86\inffas32.obj /NOLOGO /MACHINE:X86 /NODEFAULTLIB x86\ZlibStatRelease\Tmp\zlib.res
+         x86\ZlibStatRelease\Tmp\adler32.obj
+         x86\ZlibStatRelease\Tmp\compress.obj
+         x86\ZlibStatRelease\Tmp\crc32.obj
+         x86\ZlibStatRelease\Tmp\deflate.obj
+         x86\ZlibStatRelease\Tmp\gzclose.obj
+         x86\ZlibStatRelease\Tmp\gzlib.obj
+         x86\ZlibStatRelease\Tmp\gzread.obj
+         x86\ZlibStatRelease\Tmp\gzwrite.obj
+         x86\ZlibStatRelease\Tmp\infback.obj
+         x86\ZlibStatRelease\Tmp\inffast.obj
+         x86\ZlibStatRelease\Tmp\inflate.obj
+         x86\ZlibStatRelease\Tmp\inftrees.obj
+         x86\ZlibStatRelease\Tmp\ioapi.obj
+         x86\ZlibStatRelease\Tmp\trees.obj
+         x86\ZlibStatRelease\Tmp\uncompr.obj
+         x86\ZlibStatRelease\Tmp\unzip.obj
+         x86\ZlibStatRelease\Tmp\zip.obj
+         x86\ZlibStatRelease\Tmp\zutil.obj
+         zlibstat.vcxproj -> D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\x86\ZlibStatRelease\zlibstat.lib
+     1>Done Building Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\zlibstat.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.57

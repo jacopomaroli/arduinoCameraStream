@@ -1,0 +1,68 @@
+﻿Build started 04/04/2015 19:19:33.
+     1>Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\zlibvc.vcxproj" on node 2 (Build target(s)).
+     1>PreBuildEvent:
+         cd ..\..\masmx86
+         bld_ml32.bat
+         :VCEnd
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+          Assembling: match686.asm
+          Assembling: inffas32.asm
+         Microsoft (R) Macro Assembler Version 12.00.21005.1
+         Copyright (C) Microsoft Corporation.  All rights reserved.
+         
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\.. /I..\..\masmx86 /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /GL /D WIN32 /D _CRT_NONSTDC_NO_DEPRECATE /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_WARNINGS /D ZLIB_WINAPI /D ASMV /D ASMINF /D _WINDLL /GF /Gm- /MT /GS- /Gy /fp:precise /Zc:wchar_t /Zc:forScope /FAcs /Fa"x86\ZlibDllRelease\Tmp\\" /Fo"x86\ZlibDllRelease\Tmp\\" /Fd"x86\ZlibDllRelease\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\adler32.c ..\..\..\compress.c ..\..\..\crc32.c ..\..\..\deflate.c ..\..\..\gzclose.c ..\..\..\gzlib.c ..\..\..\gzread.c ..\..\..\gzwrite.c ..\..\..\infback.c ..\..\..\inffast.c ..\..\..\inflate.c ..\..\..\inftrees.c ..\..\minizip\ioapi.c ..\..\minizip\iowin32.c ..\..\..\trees.c ..\..\..\uncompr.c ..\..\..\zutil.c
+         adler32.c
+         compress.c
+         crc32.c
+         deflate.c
+         gzclose.c
+         gzlib.c
+         gzread.c
+         gzwrite.c
+         infback.c
+         inffast.c
+         inflate.c
+         inftrees.c
+         ioapi.c
+         iowin32.c
+         trees.c
+         uncompr.c
+         zutil.c
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\.. /I..\..\masmx86 /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy- /GL /D ZLIB_INTERNAL /D WIN32 /D _CRT_NONSTDC_NO_DEPRECATE /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_WARNINGS /D ZLIB_WINAPI /D ASMV /D ASMINF /D _WINDLL /GF /Gm- /MT /GS- /Gy /fp:precise /Zc:wchar_t /Zc:forScope /FAcs /Fa"x86\ZlibDllRelease\Tmp\\" /Fo"x86\ZlibDllRelease\Tmp\\" /Fd"x86\ZlibDllRelease\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\minizip\unzip.c ..\..\minizip\zip.c
+         unzip.c
+         zip.c
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D NDEBUG /l"0x040c" /nologo /fo"x86\ZlibDllRelease\Tmp\zlib.res" zlib.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"x86\ZlibDllRelease\zlibwapi.dll" /INCREMENTAL:NO /NOLOGO ..\..\masmx86\match686.obj ..\..\masmx86\inffas32.obj kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:".\zlibvc.def" /MANIFEST:NO /PDB:"x86\ZlibDllRelease\zlibwapi.pdb" /MAP:"x86\ZlibDllRelease\zlibwapi.map" /SUBSYSTEM:WINDOWS /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"x86\ZlibDllRelease\zlibwapi.lib" /MACHINE:X86 /SAFESEH /MACHINE:I386 /DLL x86\ZlibDllRelease\Tmp\zlib.res
+         x86\ZlibDllRelease\Tmp\adler32.obj
+         x86\ZlibDllRelease\Tmp\compress.obj
+         x86\ZlibDllRelease\Tmp\crc32.obj
+         x86\ZlibDllRelease\Tmp\deflate.obj
+         x86\ZlibDllRelease\Tmp\gzclose.obj
+         x86\ZlibDllRelease\Tmp\gzlib.obj
+         x86\ZlibDllRelease\Tmp\gzread.obj
+         x86\ZlibDllRelease\Tmp\gzwrite.obj
+         x86\ZlibDllRelease\Tmp\infback.obj
+         x86\ZlibDllRelease\Tmp\inffast.obj
+         x86\ZlibDllRelease\Tmp\inflate.obj
+         x86\ZlibDllRelease\Tmp\inftrees.obj
+         x86\ZlibDllRelease\Tmp\ioapi.obj
+         x86\ZlibDllRelease\Tmp\iowin32.obj
+         x86\ZlibDllRelease\Tmp\trees.obj
+         x86\ZlibDllRelease\Tmp\uncompr.obj
+         x86\ZlibDllRelease\Tmp\unzip.obj
+         x86\ZlibDllRelease\Tmp\zip.obj
+         x86\ZlibDllRelease\Tmp\zutil.obj
+            Creating library x86\ZlibDllRelease\zlibwapi.lib and object x86\ZlibDllRelease\zlibwapi.exp
+         Generating code
+         Finished generating code
+         zlibvc.vcxproj -> D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\x86\ZlibDllRelease\zlibwapi.dll
+     1>Done Building Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\zlibvc.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:07.41

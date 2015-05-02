@@ -1,0 +1,45 @@
+﻿Build started 04/04/2015 19:26:07.
+     1>Project "D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\libpng\libpng.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"..\..\..\..\zlib-1.2.8" /Zi /nologo /W4 /WX /Od /Oi /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /GF /Gm- /EHsc /RTC1 /MTd /GS /Gy /fp:precise /fp:except- /Zc:wchar_t- /Zc:forScope /Yc"pngpriv.h" /Fp"Debug Library\libpng16.pch" /Fo"Debug Library\\" /Fd"Debug Library\vc120.pdb" /FR"Debug Library\\" /Gd /TC /wd4996 /wd4127 /analyze- /errorReport:prompt ..\..\..\png.c
+         png.c
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"..\..\..\..\zlib-1.2.8" /Zi /nologo /W4 /WX /Od /Oi /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _MBCS /GF /Gm- /EHsc /RTC1 /MTd /GS /Gy /fp:precise /fp:except- /Zc:wchar_t- /Zc:forScope /Yu"pngpriv.h" /Fp"Debug Library\libpng16.pch" /Fo"Debug Library\\" /Fd"Debug Library\vc120.pdb" /FR"Debug Library\\" /Gd /TC /wd4996 /wd4127 /analyze- /errorReport:prompt ..\..\..\pngerror.c ..\..\..\pngget.c ..\..\..\pngmem.c ..\..\..\pngpread.c ..\..\..\pngread.c ..\..\..\pngrio.c ..\..\..\pngrtran.c ..\..\..\pngrutil.c ..\..\..\pngset.c ..\..\..\pngtrans.c ..\..\..\pngwio.c ..\..\..\pngwrite.c ..\..\..\pngwtran.c ..\..\..\pngwutil.c
+         pngerror.c
+         pngget.c
+         pngmem.c
+         pngpread.c
+         pngread.c
+         pngrio.c
+         pngrtran.c
+         pngrutil.c
+         pngset.c
+         pngtrans.c
+         pngwio.c
+         pngwrite.c
+         pngwtran.c
+         pngwutil.c
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\Debug Library\libpng16.lib" /NOLOGO "Debug Library\png.obj"
+         "Debug Library\pngerror.obj"
+         "Debug Library\pngget.obj"
+         "Debug Library\pngmem.obj"
+         "Debug Library\pngpread.obj"
+         "Debug Library\pngread.obj"
+         "Debug Library\pngrio.obj"
+         "Debug Library\pngrtran.obj"
+         "Debug Library\pngrutil.obj"
+         "Debug Library\pngset.obj"
+         "Debug Library\pngtrans.obj"
+         "Debug Library\pngwio.obj"
+         "Debug Library\pngwrite.obj"
+         "Debug Library\pngwtran.obj"
+         "Debug Library\pngwutil.obj"
+         libpng.vcxproj -> D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\Debug Library\libpng16.lib
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o"D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\Debug Library\libpng16.bsc" "Debug Library\png.sbr" "Debug Library\pngerror.sbr" "Debug Library\pngget.sbr" "Debug Library\pngmem.sbr" "Debug Library\pngpread.sbr" "Debug Library\pngread.sbr" "Debug Library\pngrio.sbr" "Debug Library\pngrtran.sbr" "Debug Library\pngrutil.sbr" "Debug Library\pngset.sbr" "Debug Library\pngtrans.sbr" "Debug Library\pngwio.sbr" "Debug Library\pngwrite.sbr" "Debug Library\pngwtran.sbr" "Debug Library\pngwutil.sbr"
+     1>Done Building Project "D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\libpng\libpng.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.12

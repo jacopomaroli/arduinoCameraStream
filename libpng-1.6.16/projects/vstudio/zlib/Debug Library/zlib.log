@@ -1,0 +1,36 @@
+﻿Build started 04/04/2015 19:26:07.
+     1>Project "D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\zlib\zlib.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /nologo /W0 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D Z_SOLO /Gm- /EHsc /MTd /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug Library\\" /Fd"Debug Library\vc120.pdb" /FR"Debug Library\\" /Gd /TC /analyze- /errorReport:prompt "..\..\..\..\zlib-1.2.8\adler32.c" "..\..\..\..\zlib-1.2.8\compress.c" "..\..\..\..\zlib-1.2.8\crc32.c" "..\..\..\..\zlib-1.2.8\deflate.c" "..\..\..\..\zlib-1.2.8\infback.c" "..\..\..\..\zlib-1.2.8\inffast.c" "..\..\..\..\zlib-1.2.8\inflate.c" "..\..\..\..\zlib-1.2.8\inftrees.c" "..\..\..\..\zlib-1.2.8\trees.c" "..\..\..\..\zlib-1.2.8\uncompr.c" "..\..\..\..\zlib-1.2.8\zutil.c"
+         adler32.c
+         compress.c
+         crc32.c
+         deflate.c
+         infback.c
+         inffast.c
+         inflate.c
+         inftrees.c
+         trees.c
+         uncompr.c
+         zutil.c
+         Generating Code...
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\Debug Library\zlib.lib" /NOLOGO "Debug Library\adler32.obj"
+         "Debug Library\compress.obj"
+         "Debug Library\crc32.obj"
+         "Debug Library\deflate.obj"
+         "Debug Library\infback.obj"
+         "Debug Library\inffast.obj"
+         "Debug Library\inflate.obj"
+         "Debug Library\inftrees.obj"
+         "Debug Library\trees.obj"
+         "Debug Library\uncompr.obj"
+         "Debug Library\zutil.obj"
+         zlib.vcxproj -> D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\Debug Library\zlib.lib
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\bscmake.exe /nologo /o"D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\Debug Library\zlib.bsc" "Debug Library\adler32.sbr" "Debug Library\compress.sbr" "Debug Library\crc32.sbr" "Debug Library\deflate.sbr" "Debug Library\infback.sbr" "Debug Library\inffast.sbr" "Debug Library\inflate.sbr" "Debug Library\inftrees.sbr" "Debug Library\trees.sbr" "Debug Library\uncompr.sbr" "Debug Library\zutil.sbr"
+     1>Done Building Project "D:\Development\electronic\project\libpng-1.6.16\projects\vstudio\zlib\zlib.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.43

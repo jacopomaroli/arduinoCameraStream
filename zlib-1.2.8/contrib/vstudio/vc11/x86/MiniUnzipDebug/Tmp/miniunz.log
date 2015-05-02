@@ -1,0 +1,11 @@
+﻿Build started 04/04/2015 19:19:02.
+     1>Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\miniunz.vcxproj" on node 4 (Build target(s)).
+     1>Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"x86\MiniUnzipDebug\miniunz.exe" /INCREMENTAL /NOLOGO x86\ZlibDllDebug\zlibwapi.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"x86\MiniUnzipDebug\miniunz.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"x86\MiniUnzipDebug\miniunz.lib" /MACHINE:X86 /SAFESEH x86\MiniUnzipDebug\Tmp\miniunz.obj
+         "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\x86\ZlibDllDebug\zlibwapi.lib"
+         miniunz.vcxproj -> D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\x86\MiniUnzipDebug\miniunz.exe
+     1>Done Building Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\miniunz.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.18

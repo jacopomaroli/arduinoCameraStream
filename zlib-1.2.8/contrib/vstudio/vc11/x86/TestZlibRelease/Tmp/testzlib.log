@@ -1,0 +1,37 @@
+﻿Build started 04/04/2015 19:19:33.
+     1>Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\testzlib.vcxproj" on node 4 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I..\..\.. /Zi /nologo /W3 /WX- /O2 /Ob1 /Oy /GL /D ASMV /D ASMINF /D WIN32 /D ZLIB_WINAPI /D NDEBUG /D _CONSOLE /D _CRT_NONSTDC_NO_DEPRECATE /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_WARNINGS /D _MBCS /GF /Gm- /EHsc /MT /GS- /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x86\TestZlibRelease\Tmp\\" /Fd"x86\TestZlibRelease\Tmp\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\adler32.c ..\..\..\compress.c ..\..\..\crc32.c ..\..\..\deflate.c ..\..\..\infback.c ..\..\..\inffast.c ..\..\..\inflate.c ..\..\..\inftrees.c ..\..\testzlib\testzlib.c ..\..\..\trees.c ..\..\..\uncompr.c ..\..\..\zutil.c
+         adler32.c
+         compress.c
+         crc32.c
+         deflate.c
+         infback.c
+         inffast.c
+         inflate.c
+         inftrees.c
+         testzlib.c
+         trees.c
+         uncompr.c
+         zutil.c
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"x86\TestZlibRelease\testzlib.exe" /INCREMENTAL:NO /NOLOGO ..\..\masmx86\match686.obj ..\..\masmx86\inffas32.obj kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST:NO /DEBUG /PDB:"x86\TestZlibRelease\testzlib.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE:NO /IMPLIB:"x86\TestZlibRelease\testzlib.lib" /MACHINE:X86 /SAFESEH x86\TestZlibRelease\Tmp\adler32.obj
+         x86\TestZlibRelease\Tmp\compress.obj
+         x86\TestZlibRelease\Tmp\crc32.obj
+         x86\TestZlibRelease\Tmp\deflate.obj
+         x86\TestZlibRelease\Tmp\infback.obj
+         x86\TestZlibRelease\Tmp\inffast.obj
+         x86\TestZlibRelease\Tmp\inflate.obj
+         x86\TestZlibRelease\Tmp\inftrees.obj
+         x86\TestZlibRelease\Tmp\testzlib.obj
+         x86\TestZlibRelease\Tmp\trees.obj
+         x86\TestZlibRelease\Tmp\uncompr.obj
+         x86\TestZlibRelease\Tmp\zutil.obj
+         Generating code
+         Finished generating code
+         testzlib.vcxproj -> D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\x86\TestZlibRelease\testzlib.exe
+     1>Done Building Project "D:\Development\electronic\project\zlib-1.2.8\contrib\vstudio\vc11\testzlib.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:06.50
