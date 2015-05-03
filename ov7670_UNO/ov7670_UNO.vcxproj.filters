@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ov7670_regs.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="ov7670.h">
       <Filter>Source Files</Filter>
     </ClInclude>

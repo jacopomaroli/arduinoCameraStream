@@ -12,6 +12,7 @@
 #define _VSARDUINO_H_
 #define __AVR_ATmega328p__
 #define __AVR_ATmega328P__
+#define _VMDEBUG 1
 #define ARDUINO 106
 #define ARDUINO_MAIN
 #define __AVR__
@@ -62,5 +63,4 @@ extern "C" void __cxa_pure_virtual() {;}
 #include <ov7670_UNO.ino>
 #include <ov7670.cpp>
 #include <ov7670.h>
-#include <ov7670_regs.h>
 #endif

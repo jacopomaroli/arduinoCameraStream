@@ -18,7 +18,7 @@ static inline void serialWrB(uint8_t dat){
 	UDR0 = dat;
 	while (!(UCSR0A & (1 << UDRE0)));//wait for byte to transmit
 }
-static void StringPgm(char * str){
+static void StringPgm(const char * str){
 	do{
 		serialWrB(pgm_read_byte_near(str));
 	} while (pgm_read_byte_near(++str));
@@ -110,70 +110,47 @@ int main(void){
 	OCR2A = 0;//(F_CPU)/(2*(X+1))
 	DDRC &= ~15;//low d0-d3 camera
 	DDRD &= ~252;//d7-d4 and interrupt pins
-	//_delay_ms(10000);
+	_delay_ms(3000);
 	//set up twi for 100khz
 	TWSR &= ~3;//disable prescaler for TWI
 	TWBR = 72;//set to 100khz
 	//enable serial
 	UBRR0H = 0;
-	UBRR0L = 3;//0 = 2M baud rate. 1 = 1M baud. 3 = 0.5M. 7 = 250k. 34 = 57600. 16 = 115200. 207 is 9600 baud rate.
+	UBRR0L = 1;//0 = 2M baud rate. 1 = 1M baud. 3 = 0.5M. 7 = 250k. 34 = 57600. 16 = 115200. 207 is 9600 baud rate.
 	UCSR0A |= 2;//double speed aysnc
 	UCSR0B = (1 << RXEN0) | (1 << TXEN0);//Enable receiver and transmitter
 	UCSR0C = 6;//async 1 stop bit 8bit char no parity bits
-	//sei();Serial.write("2");cli();
 	camInit();
-	//sei();Serial.write("3");cli();
 #ifdef useVga
-	setRes(vga);
-	setColor(bayerRGB);
-	//wrReg(0x11, 25);
-	//wrReg(0x11, 57);
+	setRes(VGA);
+	setColorSpace(BAYER_RGB);
+	wrReg(0x11, 60);
 #elif defined(useQvga)
-	setRes(qvga);
-	setColor(yuv422);
+	setRes(QVGA);
+	setColorSpace(YUV422);
 	wrReg(0x11, 12);
 #else
-	setRes(qqvga);
-	setColor(yuv422);
+	setRes(QQVGA);
+	setColorSpace(YUV422);
 	wrReg(0x11, 3);
 #endif
-	wrReg(0x11, 60);
-	while (1)
-	{
-		captureImg(640, 480);
-	}
 	/* If you are not sure what value to use here for the divider (register 0x11)
 	* Values I have found to work raw vga 25 qqvga yuv422 12 qvga yuv422 21
 	* run the commented out test below and pick the smallest value that gets a correct image */
-	//while (1){
-	for (uint8_t x = 60; x >= 55; x--){
-		wrReg(0x11, x);
-		_delay_ms(1000);
-		for (int i = 0; i < 10; i++){
-			/* captureImg operates in bytes not pixels in some cases pixels are two bytes per pixel
-			* So for the width (if you were reading 640x480) you would put 1280 if you are reading yuv422 or rgb565 */
-			/*uint8_t x=63;//Uncomment this block to test divider settings note the other line you need to uncomment
-			do{
-			wrReg(0x11,x);
-			_delay_ms(1000);*/
+	while (1){
+		/* captureImg operates in bytes not pixels in some cases pixels are two bytes per pixel
+		* So for the width (if you were reading 640x480) you would put 1280 if you are reading yuv422 or rgb565 */
+		/*uint8_t x=63;//Uncomment this block to test divider settings note the other line you need to uncomment
+		do{
+		wrReg(0x11,x);
+		_delay_ms(1000);*/
 #ifdef useVga
-			captureImg(640, 480);
+		captureImg(640, 480);
 #elif defined(useQvga)
-			captureImg(320 * 2, 240);
+		captureImg(320 * 2, 240);
 #else
-			captureImg(160 * 2, 120);
+		captureImg(160 * 2, 120);
 #endif
-			//}while(--x);//Uncomment this line to test divider settings
-		}
+		//}while(--x);//Uncomment this line to test divider settings
 	}
-}
-
-void setup()
-{
-
-}
-
-void loop()
-{
-
 }
