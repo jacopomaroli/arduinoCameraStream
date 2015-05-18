@@ -33,7 +33,7 @@ namespace arduinoCameraStream
                 return;
 
             _serialPort.PortName = LDeviceId[deviceIdIndex];
-            _serialPort.BaudRate = 250000;
+            _serialPort.BaudRate = 1000000; //250000
             _serialPort.Parity = Parity.None;
             _serialPort.DataBits = 8;
             _serialPort.StopBits = StopBits.One;

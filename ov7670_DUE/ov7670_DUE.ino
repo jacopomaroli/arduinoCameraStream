@@ -1,5 +1,4 @@
 #include <Wire.h>
-#include <Arduino.h>
 
 #define ADDRESS         0x21 //Define i2c address of OV7670
 #define REGISTERS       0xC9 //Define total numbers of registers on OV7076
@@ -25,10 +24,15 @@
 #define D6_PIN			29
 #define D7_PIN			11
 
+#define VSYNC_BIT       (REG_PIOC_PDSR & (1 << 29))
+#define HREF_BIT        (REG_PIOC_PDSR & (1 << 21))
+#define PCLK_BIT        (REG_PIOC_PDSR & (1 << 22)) //pin8 is port C22 as stated here -> http://www.arduino.cc/en/Hacking/PinMappingSAM3X
+
 #define WIDTH           640
 #define HEIGHT          480
 
 volatile boolean onFrame = false;
+volatile boolean onRow   = false;
 volatile boolean onPixel = false;
 
 void wrReg(byte reg, byte dat)
@@ -110,15 +114,40 @@ void vsync_rising() //frame start
 	onFrame = true;
 }
 
+void vsync_falling() //frame stop
+{
+	onFrame = false;
+}
+
+void href_rising() //row start
+{
+	onRow = true;
+}
+
+void href_falling() //row stop
+{
+	onRow = false;
+}
+
 void pclk_rising() //pixel start
 {
 	onPixel = true;
 }
 
+void pclk_falling() //pixel stop
+{
+	onPixel = false;
+}
+
 void setup()
 {
-	delay(5000);
-	Serial.begin(250000); //can't go any faster otherwise DUE would output garbage
+	Serial.begin(250000);
+	SerialUSB.begin(0);
+	while (!Serial);
+	while (!SerialUSB);
+
+	Serial.print("here");
+	SerialUSB.print("there");
 
 	setupXCLK();
 	Wire1.begin();
@@ -127,12 +156,18 @@ void setup()
 	//some registers to debug and test
 	wrReg(0x12, 0x80); //Reset all the values
 
-	wrReg(0x12, 0x02); //ColorBar
-	wrReg(0x42, 0x08); //ColorBar
+	//wrReg(0x12, 0x02); //ColorBar semitransparent overlay of the image
+	wrReg(0x42, 0x08); //ColorBar (DSP color bars at COM17)
 
 	//wrReg(0x15, 0x02); //VSYNC inverted
 	//wrReg(0x11, 0x82); //Prescaler x3 (10 fps)
 	wrReg(0x11, 60); //slow divider because of slow serial limit
+
+	// default value gives 5.25MHz pixclock
+	// wrReg(0x11, 20); //slow divider because of slow serial limit 125kHz
+	// wrReg(0x11, 10); //slow divider because of slow serial limit 238kHz
+	// wrReg(OV_CLKRC, 30); //slow divider because of slow serial limit 84kHz
+	// wrReg(0x11, 60); //slow divider because of slow serial limit 43kHz
 
 	//code to read registers and check if they were written ok
 	/*printRegister(0x01, 1);
@@ -152,10 +187,15 @@ void setup()
 	pinMode(D7_PIN, INPUT);
 
 	attachInterrupt(VSYNC_PIN, vsync_rising, RISING);
+	//attachInterrupt(VSYNC_PIN, vsync_falling, FALLING); //not needed (?)
+	attachInterrupt(HREF_PIN, href_rising, RISING);
+	//attachInterrupt(HREF_PIN, href_falling, FALLING); // not working
 	//attachInterrupt(PCLK_PIN, pclk_rising, RISING); // code hang here. Occur too fast?
+	//attachInterrupt(PCLK_PIN, pclk_falling, FALLING); // code hang here. Occur too fast?
 }
 
 bool singleFrame = true;
+uint8_t buf[WIDTH];
 
 void loop()
 {
@@ -163,15 +203,23 @@ void loop()
 	//You're free to comment next line to take multiple frames.
 	if (!singleFrame) return; singleFrame = false;
 
+	SerialUSB.print(F("*FRAME_START*"));
 	onFrame = false;
-	Serial.print(F("*FRAME_START*"));
 	while (!onFrame);
-	for (int i = 0; i < WIDTH * HEIGHT; i++)
+	for (int i = 0; i < HEIGHT; i++)
 	{
-		//pin8 is port C22 as stated here -> http://www.arduino.cc/en/Hacking/PinMappingSAM3X
-		while (REG_PIOC_PDSR & (1 << 22)); //wait for low
-		Serial.write(REG_PIOD_PDSR & 0xFF);
-		while (!(REG_PIOC_PDSR & (1 << 22))); //wait for high
+		onRow = false;
+		while (!onRow); //not working w/interrupt on href
+		for (int j = 0; j < WIDTH; j++)
+		{
+			while (!PCLK_BIT); //wait for high
+			//while (!onPixel); // non working interrupt driven pclk
+			buf[j] = REG_PIOD_PDSR & 0xFF;
+			//while (onPixel); // non working interrupt driven pclk
+			while (PCLK_BIT); //wait for low
+		}
+		//while (onRow); //not working w/interrupt on href
+		SerialUSB.write(buf, WIDTH);
 	}
-	Serial.print(F("*FRAME_STOP*"));
+	SerialUSB.print(F("*FRAME_STOP*"));
 }
