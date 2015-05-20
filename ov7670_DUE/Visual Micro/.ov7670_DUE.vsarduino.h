@@ -108,4 +108,6 @@ extern "C" void __cxa_pure_virtual() {;}
 #define portInputRegister(P)
 #define portModeRegister(P)
 #include <ov7670_DUE.ino>
+#include <ov7670.cpp>
+#include <ov7670.h>
 #endif

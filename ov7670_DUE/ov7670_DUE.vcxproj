@@ -56,11 +56,15 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\cores\arduino;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\variants\arduino_due_x;D:\Development\electronic\arduinoCameraStream\ov7670_DUE;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\libraries\Wire;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\libraries\Wire\utility;D:\Development\electronic\arduino\IDEs\arduino-1.6.3\libraries;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\libraries;C:\Program Files (x86)\Visual Micro\Visual Micro for Arduino\Micro Platforms\default\debuggers;C:\Users\Jacopo\Documents\Arduino\libraries;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\tools\arm-none-eabi-gcc\4.8.3-2014q1/arm-none-eabi/include/c++/4.8.3/arm-none-eabi/;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\tools\arm-none-eabi-gcc\4.8.3-2014q1/arm-none-eabi/include/;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\tools\arm-none-eabi-gcc\4.8.3-2014q1\lib\gcc\arm-none-eabi\4.8.3\include;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\system\CMSIS\Device\ATMEL\;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\system\libsam;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\system\libsam\include;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\system\CMSIS\CMSIS\Include\;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\system\CMSIS\CMSIS\Include\;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\system\CMSIS\Device\ATMEL\;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\system\libsam;C:\Users\Jacopo\AppData\Roaming\arduino15\packages\arduino\hardware\sam\1.6.3\system\libsam\include;D:\Development\electronic\arduino\IDEs\arduino-1.6.3/hardware/tools/g++_arm_none_eabi\arm-none-eabi\include;D:\Development\electronic\arduino\IDEs\arduino-1.6.3/hardware/tools/g++_arm_none_eabi\arm_none_eabi\include\;D:\Development\electronic\arduino\IDEs\arduino-1.6.3/hardware/tools/g++_arm_none_eabi\lib\gcc\arm-none-eabi\4.4.1\include;D:\Development\electronic\arduino\IDEs\arduino-1.6.3/hardware/tools/g++_arm_none_eabi\lib\gcc\arm-none-eabi\4.4.1\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>D:\Development\electronic\arduinoCameraStream\ov7670_DUE\Visual Micro\.ov7670_DUE.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <IgnoreStandardIncludePath>true</IgnoreStandardIncludePath>
+      <WholeProgramOptimization>false</WholeProgramOptimization>
+      <PreprocessorDefinitions>__SAM3X8E__;USB_VID=0x2341;USB_PID=0x003e;USBCON;USB_MANUFACTURER="Unknown";USB_PRODUCT="Arduino Due";ARDUINO=163;ARDUINO_MAIN;printf=iprintf;__SAM__;__sam__;F_CPU=84000000L;__cplusplus;ARDUINO_ARCH_SAM;ARDUINO_SAM_DUE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -74,7 +78,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ov7670.h" />
     <ClInclude Include="Visual Micro\.ov7670_DUE.vsarduino.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ov7670.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

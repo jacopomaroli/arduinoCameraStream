@@ -1,9 +1,12 @@
 #include <Wire.h>
+#include "ov7670.h"
 
-#define ADDRESS         0x21 //Define i2c address of OV7670
-#define REGISTERS       0xC9 //Define total numbers of registers on OV7076
+//#define ADDRESS         0x21 //Define i2c address of OV7670
+//#define REGISTERS       0xC9 //Define total numbers of registers on OV7076
 
-#define XCLK_FREQ 10 * 1000000
+#define XCLK_FREQ 10 * 1000000 //10.5 Mhz slow but ok.
+//#define XCLK_FREQ 20 * 1000000 //21 Mhz doubles the image; too fast?
+//#define XCLK_FREQ 24 * 1000000 //42 Mhz
 
 //3v3					3v3
 //gnd                   gnd
@@ -34,26 +37,6 @@
 volatile boolean onFrame = false;
 volatile boolean onRow   = false;
 volatile boolean onPixel = false;
-
-void wrReg(byte reg, byte dat)
-{
-	delay(5);
-	Wire1.beginTransmission(ADDRESS);  //Start communication
-	Wire1.write(reg);				   //Set the register
-	Wire1.write(dat);				   //Set the value
-	Wire1.endTransmission();		   //Send data and close communication
-}
-
-byte rdReg(byte reg)
-{
-	delay(1);
-	Wire1.beginTransmission(ADDRESS);	//Start communication
-	Wire1.write(reg);					//Set the register to read
-	Wire1.endTransmission();			//Send data and close communication
-	Wire1.requestFrom(ADDRESS, 1);		//Set the channel to read
-	while (Wire1.available() < 1);		//Wait for all data to arrive
-	return Wire1.read();                //Read the data and return them
-}
 
 void printRegister(byte reg, int mode)
 {
@@ -154,14 +137,29 @@ void setup()
 	//Wire1.setClock(400000); //should work but needs some delay after every read/write. buggy?
 
 	//some registers to debug and test
-	wrReg(0x12, 0x80); //Reset all the values
+	//wrReg(0x12, 0x80); //Reset all the values
+	camInit();
+	setRes(VGA);
+	setColorSpace(BAYER_RGB);
 
 	//wrReg(0x12, 0x02); //ColorBar semitransparent overlay of the image
-	wrReg(0x42, 0x08); //ColorBar (DSP color bars at COM17)
+	//wrReg(0x42, 0x08); //ColorBar (DSP color bars at COM17)
 
 	//wrReg(0x15, 0x02); //VSYNC inverted
 	//wrReg(0x11, 0x82); //Prescaler x3 (10 fps)
 	wrReg(0x11, 60); //slow divider because of slow serial limit
+	//wrReg(0x11, 1 << 6);
+
+	//F(internal clock) = F(input clock) / (Bit[0 - 5] + 1)
+	/*uint8_t tmpReg = 0;
+	tmpReg |= 1 << 0;
+	tmpReg |= 1 << 1;
+	tmpReg |= 1 << 2;*/
+	//tmpReg |= 1 << 3;
+	//tmpReg |= 1 << 4;
+	//tmpReg |= 1 << 5;
+	//wrReg(0x11, tmpReg);
+	//wrReg(0x11, 20);
 
 	// default value gives 5.25MHz pixclock
 	// wrReg(0x11, 20); //slow divider because of slow serial limit 125kHz
@@ -192,6 +190,7 @@ void setup()
 	//attachInterrupt(HREF_PIN, href_falling, FALLING); // not working
 	//attachInterrupt(PCLK_PIN, pclk_rising, RISING); // code hang here. Occur too fast?
 	//attachInterrupt(PCLK_PIN, pclk_falling, FALLING); // code hang here. Occur too fast?
+
 }
 
 bool singleFrame = true;
@@ -201,7 +200,7 @@ void loop()
 {
 	//We take only one frame for testing purposes.
 	//You're free to comment next line to take multiple frames.
-	if (!singleFrame) return; singleFrame = false;
+	//if (!singleFrame) return; singleFrame = false;
 
 	SerialUSB.print(F("*FRAME_START*"));
 	onFrame = false;
@@ -212,11 +211,11 @@ void loop()
 		while (!onRow); //not working w/interrupt on href
 		for (int j = 0; j < WIDTH; j++)
 		{
-			while (!PCLK_BIT); //wait for high
+			while (PCLK_BIT); //wait for low
 			//while (!onPixel); // non working interrupt driven pclk
 			buf[j] = REG_PIOD_PDSR & 0xFF;
 			//while (onPixel); // non working interrupt driven pclk
-			while (PCLK_BIT); //wait for low
+			while (!PCLK_BIT); //wait for high
 		}
 		//while (onRow); //not working w/interrupt on href
 		SerialUSB.write(buf, WIDTH);
