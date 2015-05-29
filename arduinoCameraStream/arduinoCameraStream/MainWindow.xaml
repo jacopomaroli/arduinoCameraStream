@@ -4,8 +4,25 @@
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         Title="Arduino Camera Viewer" Width="1085" Height="735">
     <Window.Resources>
-        <Image x:Key="Record" Source="resources/RecordPressed.png" />
+        <Style x:Key="noBackground" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="1" Background="#b2d7fe" BorderBrush="#68a8e9">
+                            <ContentPresenter Margin="2"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Image x:Key="RecordOn" Source="resources/RecordOn.png" />
+        <Image x:Key="RecordOff" Source="resources/RecordOff.png" />
         <Image x:Key="Stop" Source="resources/stopRecording.png" />
+        <Image x:Key="Play" Source="resources/play.png" />
+        <Image x:Key="Pause" Source="resources/pause.png" />
+        <Image x:Key="SkipForward" Source="resources/skipForward.png" />
+        <Image x:Key="SkipBackward" Source="resources/skipBackward.png" />
+        <Image x:Key="Eject" Source="resources/eject.png" />
     </Window.Resources>
     <Window.CommandBindings>
         <CommandBinding Command="New" Executed="New_Executed" CanExecute="New_CanExecute" />
@@ -80,10 +97,12 @@
                     <Button x:Name="openSerial" Content="Open" Width="75" Margin="5,0,0,0" BorderBrush="Gray" IsEnabled="False"/>
                 </ToolBar>
                 <ToolBar>
-                    <Button x:Name="recordStop" ToolTip="Overwrite the current selected stroke" Content="{DynamicResource Record}"/>
-                </ToolBar>
-                <ToolBar>
-                    <Button x:Name="openStream" Content="Open Stream" Margin="5,0,0,0" BorderBrush="Gray" IsEnabled="True"/>
+                    <Button x:Name="openStream" ToolTip="Play a raw camera stream" Content="{DynamicResource Eject}" />
+                    <Separator/>
+                    <Button x:Name="skipBackward" ToolTip="Record a raw camera stream" Content="{DynamicResource SkipBackward}" />
+                    <Button x:Name="record" ToolTip="Record a raw camera stream" Content="{DynamicResource RecordOn}" />
+                    <Button x:Name="playPause" ToolTip="Play a raw camera stream" Content="{DynamicResource Play}" />
+                    <Button x:Name="skipForward" ToolTip="Record a raw camera stream" Content="{DynamicResource SkipForward}" />
                 </ToolBar>
                 <ToolBar>
                     <Grid Width="200">

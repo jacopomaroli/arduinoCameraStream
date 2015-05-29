@@ -8,16 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/addexistingitem_6269.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/copy_6524.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/cross.cur")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/cut_6523.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/newfile_6276.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/open_6529.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/paste_6520.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/recordpressed.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/save_6530.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/stoprecording.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/w8spinner.gif")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/eject.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("resources/pause.png")]
 
 

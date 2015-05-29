@@ -35,6 +35,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.WindowsAPICodePack">
+      <HintPath>..\packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ExtendedLinguisticServices">
+      <HintPath>..\packages\WindowsAPICodePack-ExtendedLinguisticServices.1.1.1\lib\Microsoft.WindowsAPICodePack.ExtendedLinguisticServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Sensors">
+      <HintPath>..\packages\WindowsAPICodePack-Sensors.1.1.1\lib\Microsoft.WindowsAPICodePack.Sensors.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell">
+      <HintPath>..\packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions">
+      <HintPath>..\packages\WindowsAPICodePack-ShellExtensions.1.1.1\lib\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -69,6 +84,7 @@
     </Compile>
     <Compile Include="console.cs" />
     <Compile Include="decoding.cs" />
+    <Compile Include="fileManager.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -92,6 +108,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,7 +118,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="resources\RecordOff.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="resources\AddExistingItem_6269.png" />
     <Resource Include="resources\Copy_6524.png" />
@@ -110,10 +129,21 @@
     <Resource Include="resources\NewFile_6276.png" />
     <Resource Include="resources\Open_6529.png" />
     <Resource Include="resources\Paste_6520.png" />
-    <Resource Include="resources\RecordPressed.png" />
+    <Resource Include="resources\RecordOn.png" />
     <Resource Include="resources\Save_6530.png" />
     <Resource Include="resources\stopRecording.png" />
     <Resource Include="resources\w8spinner.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\skipBackward.png" />
+    <Resource Include="resources\skipForward.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="resources\eject.png" />
+    <Resource Include="resources\pause.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

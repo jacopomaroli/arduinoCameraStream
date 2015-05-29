@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Management;
 using System.ComponentModel;
+using System.Windows.Threading;
 
 namespace arduinoCameraStream
 {
@@ -64,6 +65,81 @@ namespace arduinoCameraStream
         {
             openSerial.Click += App.openSerialHandler;
             COMList.SelectionChanged += App.serialSelectorChanged;
+
+            record.Click += recordHandler;
+            playPause.Click += playPauseHandler;
+            openStream.Click += openRawStreamHandler;
+            skipBackward.Click += skipBackwardHandler;
+            skipForward.Click += skipForwardHandler;
+        }
+        public void skipBackwardHandler(object sender, RoutedEventArgs e)
+        {
+            App.rawViewerIndexPrev();
+            App.drawImgFromRawFile();
+        }
+        public void skipForwardHandler(object sender, RoutedEventArgs e)
+        {
+            App.rawViewerIndexNext();
+            App.drawImgFromRawFile();
+        }
+        public void openRawStreamHandler(object sender, RoutedEventArgs e)
+        {
+            fileManager.openRawStream();
+        }
+        DispatcherTimer _blinkTimer = new DispatcherTimer();
+        bool blinkStatus = false;
+        public void StartBlinking()
+        {
+            _blinkTimer.Interval = TimeSpan.FromSeconds(1);
+            _blinkTimer.Tick += ToggleIconVisibility;
+            _blinkTimer.Start();
+            record.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFA21C1C"));
+            record.Content = FindResource("RecordOn");
+            record.Style = (Style)FindResource("noBackground");
+            blinkStatus = true;
+        }
+        public void StopBlinking()
+        {
+            _blinkTimer.Stop();
+            _blinkTimer.Tick -= ToggleIconVisibility;
+            record.Background = null;
+            record.Content = FindResource("RecordOff");
+            record.Style = null;
+            blinkStatus = false;
+        }
+        private void ToggleIconVisibility(object sender, EventArgs e)
+        {
+            record.Content = FindResource((blinkStatus) ? "RecordOff" : "RecordOn");
+            blinkStatus ^= true;
+        } 
+        void recordHandler(object sender, RoutedEventArgs e)
+        {
+            if (!App.isRecording)
+            {
+                App.recordingFrameCount = 0;
+                App.recordingFolder = ((DateTime.Now.Ticks - App.epochDateTime.Ticks) / 10000000).ToString();
+                System.IO.Directory.CreateDirectory(App.recordingFolder);
+                App.isRecording = true;
+                StartBlinking();
+            }
+            else
+            {
+                App.isRecording = false;
+                StopBlinking();
+            }
+        }
+        void playPauseHandler(object sender, RoutedEventArgs e)
+        {
+            if (!App.isPlaying)
+            {
+                App.isPlaying = true;
+                playPause.Content = FindResource("Pause");
+            }
+            else
+            {
+                App.isPlaying = false;
+                playPause.Content = FindResource("Play");
+            }
         }
         void attachCanvasEvents()
         {
